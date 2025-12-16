@@ -18,14 +18,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+      - name: Analyze with SonarScanner for .NET
         env:
           SONAR_TOKEN: a3af1fc9362d9dbeb018d44893bbbeb2ae0437de
-          SONAR_HOST_URL: https://sonarcloud.io
-        with:
-          args: >
-            -Dsonar.projectKey=NileshVirkar148_sonar-dotnet-tests
-            -Dsonar.organization=nileshvirkar148
-            -Dsonar.sources=src
-            -Dsonar.language=cs
+        run: |
+          dotnet-sonarscanner begin /k:"NileshVirkar148_sonar-dotnet-tests" /o:"nileshvirkar148" /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build SonarDotnetTests.sln || true
+          dotnet-sonarscanner end /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de"
