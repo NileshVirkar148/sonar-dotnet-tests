@@ -5,6 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <OutputType>Library</OutputType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- These are test files with intentional syntax errors for code analyzer testing -->
+    <NoCompilerStandardLib>false</NoCompilerStandardLib>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
 </Project>

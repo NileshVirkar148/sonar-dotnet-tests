@@ -5,3 +5,4 @@
 /Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.AssemblyInfoInputs.cache
 /Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.AssemblyInfo.cs
 /Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.csproj.CoreCompileInputs.cache
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.sourcelink.json

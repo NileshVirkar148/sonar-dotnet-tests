@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SonarDotnetTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43dcd880faa97d28d98ce4b65740a9f3b24bf43b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SonarDotnetTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SonarDotnetTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
