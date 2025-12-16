@@ -39,9 +39,9 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
       - name: Build and analyze
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: a3af1fc9362d9dbeb018d44893bbbeb2ae0437de
         shell: powershell
         run: |
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"NileshVirkar148_sonar-dotnet-tests" /o:"nileshvirkar148" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"NileshVirkar148_sonar-dotnet-tests" /o:"nileshvirkar148" /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build SonarDotnetTests.sln
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de"
