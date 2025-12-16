@@ -1,0 +1,7 @@
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.Resources.AnotherResources.resources
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.Resources.SomeResources.resources
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.csproj.GenerateResource.cache
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.AssemblyInfoInputs.cache
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.AssemblyInfo.cs
+/Users/nilesh/nilesh/source_codes/git/cs/sonar-dotnet-tests/src/obj/Debug/net8.0/SonarDotnetTests.csproj.CoreCompileInputs.cache
