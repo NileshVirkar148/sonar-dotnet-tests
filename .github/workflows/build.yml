@@ -8,41 +8,24 @@ on:
 jobs:
   build:
     name: Build and analyze
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available.
+          distribution: 'zulu'
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Cache SonarQube Cloud packages
-        uses: actions/cache@v4
-        with:
-          path: ~\sonar\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarQube Cloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v4
-        with:
-          path: ${{ runner.temp }}\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarQube Cloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
-      - name: Build and analyze
+          fetch-depth: 0
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: a3af1fc9362d9dbeb018d44893bbbeb2ae0437de
-        shell: powershell
-        run: |
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"NileshVirkar148_sonar-dotnet-tests" /o:"nileshvirkar148" /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build SonarDotnetTests.sln --no-incremental
-          if ($LASTEXITCODE -ne 0) { Write-Host "Build completed with errors (expected for test files)" }
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de"
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.projectKey=NileshVirkar148_sonar-dotnet-tests
+            -Dsonar.organization=nileshvirkar148
+            -Dsonar.sources=src
+            -Dsonar.language=cs
