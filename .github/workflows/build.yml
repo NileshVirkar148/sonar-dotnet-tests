@@ -43,5 +43,6 @@ jobs:
         shell: powershell
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"NileshVirkar148_sonar-dotnet-tests" /o:"nileshvirkar148" /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build SonarDotnetTests.sln --no-incremental || echo "Build completed with errors (expected for test files)"
+          dotnet build SonarDotnetTests.sln --no-incremental
+          if ($LASTEXITCODE -ne 0) { Write-Host "Build completed with errors (expected for test files)" }
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="a3af1fc9362d9dbeb018d44893bbbeb2ae0437de"
